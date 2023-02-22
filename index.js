@@ -1,12 +1,9 @@
-require ('dotenv').config()
 const express = require('express')
-const mongoose = require('mongoose')
-const bcrypt = require('bcrypt')
-const jwt = require('jsonwebtoken')
 const app = express()
 var bodyParser = require('body-parser')
 var cookieParser = require('cookie-parser')
 var path = require('path')
+var Usuario = require('./model/usuario')
 
 app.use(cookieParser())
 
@@ -25,6 +22,27 @@ app.get('/', (req, res) =>{
     res.render('inicio.ejs', {})
 
 })
+                                            //login//
+app.get('/add', function(req, res){
+    res.render('registro.ejs')
+})
+
+app.post('/add', function(req, res){
+    var usuario = new Usuario({
+        nome: req.body.txtNome,
+        email: req.body.txtEmail,
+        senha: req.body.txtSenha
+    })
+    usuario.save(function(err){
+        if(err){
+            console.log(err)
+        }
+        else{
+            res.redirect('/');
+        }
+    })
+})
+                                        
                                         //pagina inicial//
 app.get('/paginainicial', function(req, res){
     res.render('index.ejs', {})
@@ -35,27 +53,10 @@ app.get('/usuarios', function(req, res){
     res.render('usuarios.ejs', {})
 
 })
-                                        //teste do post /add//
-//add
-app.get('/add', function(req, res){
-    res.render('adiciona.')
-})
-//post
-app.post('/add',function(req, res){
-    console.log("chegou aqui")
-})
 
-//banco de dados
-//const dbUser = process.env.DB_USER 
-//const dbPassword = process.env.DB_PASS
-
-//mongoose
-//    .connect()
-//   .then(() => {
 
         app.listen(3000, function () {
             console.log("conexão inicializada na porta 3000")
         })
-//    })
-//    .catch((err) => console.log(err))
+
 
