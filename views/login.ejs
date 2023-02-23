@@ -3,54 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <style> 
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #c8a09a;
+}
+form{
+    background-color: white;
+    max-width: 500px;
+    width: 70%;
+    padding: 20px;
+    position: absolute;
+    left: 50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+}
+form h3{
+    text-align: center;
+    color: #c78379;
+}
+form input[type=text],
+form input[type=password]{
+    width: 100%;
+    height: 45px;
+    border: 1px solid #ccc;
+    padding-left: 10px;
+    margin: 10px 0 ;
+
+}
+
+form input[type=submit]{
+    width: 100%;
+    height: 30px;
+    cursor: pointer;
+    background-color: #c8a09a;
+    color: white;
+    border: 0;
+    border-radius: 20px;
+    transition: 1s;
+}
+form input[type=submit]:hover{
+    background-color: #d19a92;
+
+}
+form input[type=text]:focus{
+    outline: 0;
+}
+form input[type=password]:focus{
+    outline: 0;
+}
+
+
+
+    
+
+    
+    
+    </style>
+
 </head>
 <body>
+<form>
+    <h3>Entrar em contato</h3>
+    <input type="text" name="email" placeholder="Informe seu email"/>
+    <input type="text" name="password" placeholder="Informe sua senha"/>
+    <input type="submit" name="acao" value="enviar"/> 
+</form>
 
-    <div class="container">
-
-        <div class="illustration">
-            <img src="/img/mask.png" alt="mask">
-        </div>
-
-        <div class="form">
-
-            <form method="post">
-                
-                <div class="form-header">
-
-                    <div class="title">
-                        <h1>Faça seu login!</h1>
-                    </div>
-
-                    <div class="botaologin">
-                        <div class="login-button">
-                        <button><a href="http://localhost:3000/auth/register">Cadastro</a></button>
-                        </div>
-                        <h6 class="naoconta">Não tem conta?</h6>
-                    </div>
-
-                </div>
-
-                <div class="input-group">
-
-                    <div class="input-box">
-                        <label for="email">E-mail</label>
-                        <input type="email" name="username" id="email" placeholder="nome@exemplo.com" required>
-                    </div>
-
-                    <div class="input-box">
-                        <label for="password">Senha</label>
-                        <input type="password" name="password" id="password" placeholder="*******" required>
-                    </div>
-
-                </div>
-                <div class="continue-button">
-                    <input type="submit" value="Logar">
-                </div>
-            </form>
-        </div>
-    </div>
 </body>
 </html>

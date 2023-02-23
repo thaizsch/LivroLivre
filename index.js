@@ -22,7 +22,11 @@ app.get('/', (req, res) =>{
     res.render('inicio.ejs', {})
 
 })
-                                            //login//
+                                              //login//
+app.get('/', function(req, res){
+    res.render('login.ejs', {})
+})
+                                            //registro//
 app.get('/add', function(req, res){
     res.render('registro.ejs')
 })
