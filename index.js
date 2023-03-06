@@ -8,6 +8,7 @@ const passport = require("passport");
 const passport1 = require("./config/passport");
 var Usuario = require('./model/usuario')
 var Postagem = require('./model/postagem')
+var upload = require('./config/upload')
 app.use(cookieParser())
 
 app.use(
@@ -62,7 +63,7 @@ app.post('/cadastro', function (req, res) {
 //public//
 app.get('/principal', async function (req, res) {
     const usuario = await Usuario.findById(req.user.id)
-    const postagens = await Postagem.find({}).populate('usuario')
+    const postagens = await Postagem.find({}).populate('usuario')    
     res.render('index.ejs', {Usuario:usuario, Postagens: postagens})
 })
 //perfil do usuario//
@@ -70,14 +71,21 @@ app.get('/perfil', function (req, res) {
     res.render('perfil.ejs', {})
 })
 //rota para abrir formulário de postagem
-app.post('/postagem', (req, res) => {
-    res.render('postagem.ejs', {})
-})
+
 //realizar postagem
-app.post('/postagem', (req, res) => {
+app.post('/principal', upload.single('imglivro'), (req, res) => {
+    console.log(req.file)
     var postagem = new Postagem({
         texto: req.body.txtTexto,
-        imglivro: req.body.imglivro
+        imglivro: req.file.filename,
+        usuario: req.user.id
+    })
+    postagem.save(function(err, result) {
+        if (err){
+            return console.error(err)
+        }else{
+            res.redirect('/principal')
+        }
     })
 })
 

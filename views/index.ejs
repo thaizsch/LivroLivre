@@ -12,6 +12,16 @@
 </head>
 
 <body>
+    <div id="title">
+        <h1>LivroLivre</h1>
+    </div>
+
+    <ul>
+        <a href="" id="link"><li>Resenhas</li></a>
+        <a href="" id="link"><li>Perfil</li></a>
+    </ul>
+</header>
+
 
     <main class="main">
         <!-- Formulario de postagem (postar livro)-->
@@ -22,11 +32,11 @@
                 </div>
                 <strong><%=Usuario.nome%> <%=Usuario.sobrenome%></strong>
             </div>
-            <form class="formPost" id="formpost" method="post">
-                <textarea name="textarea" placeholder="Publicar um livro" id="textarea"></textarea>
+            <form class="formPost" id="formpost" method="post" enctype="multipart/form-data">
+                <textarea name="texto" placeholder="Publicar um livro" id="textarea"></textarea>
 
                 <div class="iconsAndButtons">
-                    <input type="file" required name="foto">
+                    <input type="file" required name="imglivro">
                     <!--<div class="icons">
                             <button class="btnFileForm">Foto</button>
                         </div>-->
@@ -42,13 +52,14 @@
                     <div class="imgUserPost"></div>
                     <div class="nameAndHour">
                         <strong><%=post.usuario.nome%></strong>
-                        <p> 10:00 </p>
+                        <p>  </p>
                     </div>
                 </div>
 
                 <p>
-                    Texto
+                   <%=post.usuario.nome%>
                 </p>
+                <img src="/fotos/<%=post.imglivro%>" style="max-width:70%; max-height:70%;" >
 
                 <div class="actionBtnPost">
                     <button type="button" class="filesPost like">Favoritar</button>
