@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="/css/Perfil.css">
+    <title>Perfil</title>
+
+
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <div class="logo"><img src="/img/icon_livrolivre.png" alt="imglogo" class="img-logolivrolivre"></div>
+            <a href="/perfil">Perfil</a>
+            <a href="/resenha">Resenhas</a>
+            <a href="/principal">Inicio</a>
+
+        </nav>
+    </header>
+
+    <div class="container">
+            <div class="card">
+                <img src="fotos/icon" alt="perfil" class="profile-img">
+
+                <div class="container-text">
+                    <strong class="name"><%=Usuario.nome%> <%=Usuario.sobrenome%></strong> 
+                    <h3 class="desc">
+                        <br>
+                        <img src="/img/email-icon.png" alt="email" class="address-icon"> <strong class="email"><%=Usuario.email%></strong> <br>
+                        <img src="/img/icone-telefone.png" alt="telefone" class="address-icon"> <strong class="email"><%=Usuario.telefone%></strong> 
+                    </h3>
+                    <a class="edit" href="/editar">Editar Perfil</a>
+
+                </div>
+            </div>
+    </div>
+
+</body>
+
+</html>

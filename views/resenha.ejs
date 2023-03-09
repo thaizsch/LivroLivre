@@ -15,9 +15,9 @@
 <header class="cabecalho">
     <nav>
         <div class="logo">LivroLivre</div>
-        <a href="/perfil">Perfil</a>
-        <a href="/resenha">Resenhas</a>
-        <a href="/principal">Inicio</a>
+        <a href="http://localhost:3000/perfil">Perfil</a>
+        <a href="http://localhost:3000/resenha">Resenhas</a>
+        <a href="http://localhost:3000/principal">Inicio</a>
     </nav>
 </header>
 
@@ -32,11 +32,10 @@
                 <strong><%=Usuario.nome%> <%=Usuario.sobrenome%></strong>
             </div>
             <form class="formPost" id="formpost" method="post" enctype="multipart/form-data">
-                <textarea name="texto" placeholder="Publicar um livro" id="textarea"></textarea>
+                <textarea name="textoResenha" type="text" placeholder="Publicar um livro" id="textarea"></textarea>
                 
 
                 <div class="iconsAndButtons">
-                    <input type="file" required name="imglivro">
                     <!--<div class="icons">
                             <button class="btnFileForm">Foto</button>
                         </div>-->
@@ -46,7 +45,7 @@
         </div>
         <!-- Posts enviados-->
         <ul class="posts" id="posts">
-            <%Postagens.forEach(function(post){%>
+            <%Resenhas.forEach(function(post){%>
             <li class="post">
                 <div class="infoUserPost">
                     <div class="imgUserPost"></div>
@@ -57,9 +56,8 @@
                 </div>
 
                 <p>
-                    <%=post.usuario.nome%>
+                    <%=post.resenha.textoResenha%>
                 </p>
-                <img src="/fotos/<%=post.imglivro%>" style="max-width:70%; max-height:70%;">
 
                 <div class="actionBtnPost">
                     <button type="button" class="filesPost chamarchat">Quero trocar</button>

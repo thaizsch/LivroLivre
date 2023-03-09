@@ -7,6 +7,10 @@ var UsuarioSchema = conexao.Schema({
     sobrenome: {
         type: "string"
     },
+    telefone: {
+        type: "string"
+    },
+
     email: {
         type: "string"
     },

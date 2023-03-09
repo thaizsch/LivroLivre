@@ -8,6 +8,7 @@ const passport = require("passport");
 const passport1 = require("./config/passport");
 var Usuario = require('./model/usuario')
 var Postagem = require('./model/postagem')
+var Resenha = require('./model/resenha')
 var upload = require('./config/upload')
 app.use(cookieParser())
 
@@ -36,7 +37,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.get('/', function (req, res) {
     res.render('login.ejs', {})
 })
-//login - loga
+//login - loga//
 app.post('/', passport1.authenticate('local', {
     successRedirect: '/principal',
     failureRedirect: '/',
@@ -49,6 +50,7 @@ app.post('/cadastro', function (req, res) {
     var usuario = new Usuario({
         nome: req.body.txtNome,
         sobrenome: req.body.txtSobrenome,
+        telefone: req.body.txtTelefone,
         email: req.body.txtEmail,
         senha: req.body.txtSenha
     })
@@ -60,16 +62,23 @@ app.post('/cadastro', function (req, res) {
         }
     })
 })
+//perfil do usuario//
+app.get('/perfil', function (req, res) {
+    
+    res.render('perfil.ejs', {})
+})
+//Editar perfil//
+app.get('/editar', function (req, res) {
+    
+    res.render('editarperfil.ejs', {})
+})
 //public//
 app.get('/principal', async function (req, res) {
     const usuario = await Usuario.findById(req.user.id)
     const postagens = await Postagem.find({}).populate('usuario')    
     res.render('index.ejs', {Usuario:usuario, Postagens: postagens})
 })
-//perfil do usuario//
-app.get('/perfil', function (req, res) {
-    res.render('perfil.ejs', {})
-})
+
 //rota para abrir formulário de postagem
 
 //realizar postagem
@@ -88,6 +97,28 @@ app.post('/principal', upload.single('imglivro'), (req, res) => {
         }
     })
 })
+//Resenha//
+app.get('/resenha', async function (req, res) {
+    const usuario = await Usuario.findById(req.user.id)
+    const resenhas = await Resenha.find({}).populate('usuario')    
+    res.render('resenha.ejs', {Usuario:usuario, Resenhas: resenhas})
+})
+//Realizar postagem da resenha//
+app.post('/resenha', (req, res) => {
+    console.log(req.file)
+    var resenha = new Resenha({
+        textoResenha: req.body.textoResenha,
+        usuario: req.user.id
+    })
+    resenha.save(function(err, result) {
+        if (err){
+            return console.error(err)
+        }else{
+            res.redirect('/resenha')
+        }
+    })
+})
+
 
 app.listen(3000, function () {
     console.log("conexão inicializada na porta 3000")

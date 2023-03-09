@@ -5,11 +5,43 @@
             box-sizing: border-box;
         }
 
+
         body {
             background-color: #fff7eb;
             font-family: 'roboto', sans-serif;
+            margin: 0;
+            box-sizing: border-box;
+            height: 100%;
 
             -webkit-font-smoothing: antialiased !important;
+        }
+        .cabecalho{
+            position: inherit;
+        }
+        nav{
+            background-color: #c8a09a;
+            overflow: hidden;
+            
+            width: 100%;
+        }
+        nav .logo{
+            color: #fff;
+            float: left;
+            display: block;
+            padding: 14px 16px;
+        }
+        nav a{
+            color: black;
+            float: right;
+            text-decoration: none;
+            display: block;
+            padding: 14px 16px;
+        }
+        nav a:hover{
+            transition: 0.5s;
+            background-color:#c78379;
+            color: white;
+        
         }
 
         li {
@@ -17,18 +49,7 @@
 
         }
 
-        header {
-            width: 100%;
-            height: 50px;
 
-            background: #c8a09a;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            box-shadow: 1px 0 3px rgba(0, 0, 0, 0.4);
-        }
 
         .main {
             max-width: 900px;
