@@ -65,7 +65,7 @@ app.post('/cadastro', function (req, res) {
 //perfil do usuario//
 app.get('/perfil', function (req, res) {
     
-    res.render('perfil.ejs', {})
+    res.render('perfil.ejs', {Usuario:req.user})
 })
 //Editar perfil//
 app.get('/editar', function (req, res) {
@@ -85,7 +85,7 @@ app.get('/principal', async function (req, res) {
 app.post('/principal', upload.single('imglivro'), (req, res) => {
     console.log(req.file)
     var postagem = new Postagem({
-        texto: req.body.txtTexto,
+        texto: req.body.texto,
         imglivro: req.file.filename,
         usuario: req.user.id
     })
@@ -107,7 +107,7 @@ app.get('/resenha', async function (req, res) {
 app.post('/resenha', (req, res) => {
     console.log(req.file)
     var resenha = new Resenha({
-        textoResenha: req.body.textoResenha,
+        textoresenha: req.body.textoResenha,
         usuario: req.user.id
     })
     resenha.save(function(err, result) {

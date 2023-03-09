@@ -15,9 +15,9 @@
 <header class="cabecalho">
     <nav>
         <div class="logo">LivroLivre</div>
-        <a href="http://localhost:3000/perfil">Perfil</a>
-        <a href="http://localhost:3000/resenha">Resenhas</a>
-        <a href="http://localhost:3000/principal">Inicio</a>
+        <a href="/perfil">Perfil</a>
+        <a href="/resenha">Resenhas</a>
+        <a href="/principal">Inicio</a>
     </nav>
 </header>
 
@@ -31,7 +31,7 @@
                 </div>
                 <strong><%=Usuario.nome%> <%=Usuario.sobrenome%></strong>
             </div>
-            <form class="formPost" id="formpost" method="post" enctype="multipart/form-data">
+            <form class="formPost" id="formpost" method="post">
                 <textarea name="textoResenha" type="text" placeholder="Publicar um livro" id="textarea"></textarea>
                 
 
@@ -56,7 +56,7 @@
                 </div>
 
                 <p>
-                    <%=post.resenha.textoResenha%>
+                    <%=post.textoResenha%>
                 </p>
 
                 <div class="actionBtnPost">

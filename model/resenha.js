@@ -1,7 +1,7 @@
 var conexao = require('../config/conexao')
 
 var ResenhaSchema = conexao.Schema({
-    textoResenha: {
+    textoresenha: {
         type: "string"
     },
     usuario: {

@@ -97,3 +97,83 @@ nav a:hover {
     border-radius: 20px;
     transition: 1s;
 }
+
+
+
+ul.posts li.post {
+    margin-bottom: 50px;
+    width: 100%;
+    background: #fff;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 1px 0 3px rgba(0, 0, 0, 0.05);
+
+}
+
+ul.posts li.post div.infoUserPost {
+    display: flex;
+    align-items: center;
+
+}
+
+ul.posts li.post div.infoUserPost div.nameAndHour {
+    margin-left: 10px;
+
+}
+
+ul.posts li.post div.infoUserPost div.imgUserPost {
+    width: 30px;
+    height: 30px;
+    border-radius: 500%;
+    background: #c8a09a;
+
+}
+
+ul.posts li.post div.infoUserPost div.nameAndHour>strong {
+    color: #c8a09a;
+
+}
+
+ul.posts li.post div.infoUserPost div.nameAndHour>p {
+    color: #d1d1d1;
+    ;
+    font-size: 12px;
+
+}
+
+ul.posts li.post>p {
+    width: 100%;
+    margin: 20px 0;
+    font-weight: bold;
+    color: #727272;
+
+}
+
+ul.posts li.post div.actionBtnPost {
+    display: flex;
+    align-items: center;
+}
+
+ul.posts li.post div.actionBtnPost button.filesPost {
+    padding: 5px 20px;
+    border: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    color: #fff;
+    font-size: 16px;
+
+    font-weight: bold;
+    margin-right: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+
+    transition: background 0.2s;
+
+}
+
+ul.posts li.post div.actionBtnPost button.filesPost img {
+    margin-right: 5px;
+
+}

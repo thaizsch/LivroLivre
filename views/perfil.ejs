@@ -37,6 +37,50 @@
 
                 </div>
             </div>
+            <div class="postagens">
+                <%Postagens.{%>
+                    <li class="post">
+                        <div class="infoUserPost">
+                            <div class="imgUserPost"></div>
+                            <div class="nameAndHour">
+                                <strong><%=post.usuario.nome%> <%=Usuario.sobrenome%></strong>
+                                <p>hora</p>
+                            </div>
+                        </div>
+        
+                        <p>
+                            <%=post.texto%>
+                        </p>
+                        <img src="/fotos/<%=post.imglivro%>" style="max-width:70%; max-height:70%;">
+        
+                        <div class="actionBtnPost">
+                            <button type="button" class="filesPost chamarchat">Quero trocar</button>
+                        </div>
+                    </li>
+                    <%})%>
+
+                <%Resenhas.forEach(function(post){%>
+                    <li class="post">
+                        <div class="infoUserPost">
+                            <div class="imgUserPost"></div>
+                            <div class="nameAndHour">
+                                <strong><%=post.usuario.nome%> <%=Usuario.sobrenome%></strong>
+                                <p>hora</p>
+                            </div>
+                        </div>
+        
+                        <p>
+                            <%=post.textoResenha%>
+                        </p>
+        
+                        <div class="actionBtnPost">
+                            <button type="button" class="filesPost chamarchat">Quero trocar</button>
+                        </div>
+                    </li>
+                    <%})%>
+
+            </div>
+
     </div>
 
 </body>
