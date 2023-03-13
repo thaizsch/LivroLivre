@@ -3,16 +3,15 @@ const passport = require("passport");
 var LocalStrategy = require("passport-local");
 
 passport.use(
-  new LocalStrategy({
-    passReqToCallback: true
-  }, async function (req, username, password, cb) {
-   
+  new LocalStrategy(async function (username, password, cb) {
     const email = username.toLowerCase()
+    
     var user = await Usuario.findOne({
       email: email
     })
+    
     if (!user) {
-      return cb(null, false,{'msg':"Usuario não exite!"});
+      return cb(null, false,{'msg':"Usuario não existe!"});
     } else {
       if (password != user.senha) {
         return cb(null, false, {'msg':"Senha inválida!"});

@@ -12,10 +12,9 @@
 <form method="post">
     <h3>Entrar em contato</h3>
     Id <input type="text" name="txtId" readonly value="<%=Usuario.id%>"/>
-    Nome <input type="text" name="txtNome" value="<%=Usuario.name%>"/>
-    Sobrenome <input type="text" name="txtSobrenome" value="<%=Usuario.Sobrenome%>"/>
-    Telefone <input type="number" name="txtTelefone" value="<%=Usuario.Telefone%>"/>
-    Foto <input type="file" name="txtFoto" value=""/>
+    Nome <input type="text" name="txtNome" value="<%=Usuario.nome%>"/>
+    Sobrenome <input type="text" name="txtSobrenome" value="<%=Usuario.sobrenome%>"/>
+    E-mail <input type="email" name="txtEmail" value="<%=Usuario.email%>"/>
 
     <input type="submit" name="acao" value="enviar"/> 
     <a href="/perfil">Cancelar</a>

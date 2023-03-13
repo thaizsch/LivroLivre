@@ -43,14 +43,16 @@
                 <div class="infoUserPost">
                     <div class="imgUserPost"></div>
                     <div class="nameAndHour">
-                        <strong><%=Usuario.nome%> <%=Usuario.sobrenome%></strong>
-                        <p>hora</p>
+                        <strong><%=post.usuario.nome%> <%=post.usuario.sobrenome%></strong>
                     </div>
                 </div>
 
                 <p>
-                    <%=post.textoResenha%>
+                    <%=post.textoresenha%>
                 </p>
+                <div class="actionBtnPost">
+                    <button type="button" class="filesPost chamarchat">Excluir Publicação</button>
+                </div>
 
             </li>
             <%})%>

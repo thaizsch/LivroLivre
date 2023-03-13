@@ -14,7 +14,7 @@
 
     <header>
         <nav>
-            <div class="logo"><img src="/img/icon_livrolivre.png" alt="imglogo" class="img-logolivrolivre"></div>
+            <div class="logo">LivroLivre</div>
             <a href="/perfil">Perfil</a>
             <a href="/resenha">Resenhas</a>
             <a href="/principal">Inicio</a>
@@ -24,14 +24,12 @@
 
     <div class="container">
             <div class="card">
-                <img src="fotos/icon" alt="perfil" class="profile-img">
 
                 <div class="container-text">
                     <strong class="name"><%=Usuario.nome%> <%=Usuario.sobrenome%></strong> 
                     <h3 class="desc">
                         <br>
-                        <img src="/img/email-icon.png" alt="email" class="address-icon"> <strong class="email"><%=Usuario.email%></strong> <br>
-                        <img src="/img/icone-telefone.png" alt="telefone" class="address-icon"> <strong class="email"><%=Usuario.telefone%></strong> 
+                        <img src="/img/email-icon.png" alt="email" class="address-icon"> <strong class="email"><%=Usuario.email%></strong> <br> 
                     </h3>
                     <a class="edit" href="/excluirpublicacao">Minhas Publicações</a> <br>
                     <a class="edit" href="/excluirresenha">Minhas Resenhas</a> <br>
@@ -40,45 +38,6 @@
 
                 </div>
             </div>
-            <div class="postagens">
-                <%Postagens.forEach(function(post){%>
-                    <li class="post">
-                        <div class="infoUserPost">
-                            <div class="imgUserPost"></div>
-                            <div class="nameAndHour">
-                                <strong><%=post.usuario.nome%> <%=Usuario.sobrenome%></strong>
-                                <p>hora</p>
-                            </div>
-                        </div>
-        
-                        <p>
-                            <%=post.texto%>
-                        </p>
-                        <img src="/fotos/<%=post.imglivro%>" style="max-width:70%; max-height:70%;">
-        
-    
-                    </li>
-                    <%})%>
-                    
-                <%Resenhas.forEach(function(post){%>
-                    <li class="post">
-                        <div class="infoUserPost">
-                            <div class="imgUserPost"></div>
-                            <div class="nameAndHour">
-                                <strong><%=post.usuario.nome%> <%=Usuario.sobrenome%></strong>
-                                <p>hora</p>
-                            </div>
-                        </div>
-        
-                        <p>
-                            <%=post.textoResenha%>
-                        </p>
-        
-                        <div class="actionBtnPost">
-                            <button type="button" class="filesPost chamarchat">Quero trocar</button>
-                        </div>
-                    </li>
-                    <%})%>
 
             </div>
 
