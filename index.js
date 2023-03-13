@@ -63,14 +63,21 @@ app.post('/cadastro', function (req, res) {
     })
 })
 //perfil do usuario//
-app.get('/perfil', function (req, res) {
-    
-    res.render('perfil.ejs', {Usuario:req.user})
+app.get('/perfil', async function (req, res) {
+    const postagens = await Postagem.find({usuario:req.user.id})
+    const resenhas = await Resenha.find({usuario:req.user.id})
+    res.render('perfil.ejs', {Usuario:req.user, Postagens:postagens, Resenhas:resenhas})
 })
 //Editar perfil//
-app.get('/editar', function (req, res) {
-    
-    res.render('editarperfil.ejs', {})
+app.get('/editar', async function (req, res) {
+    Usuario.findById(req.user.id, function (err,docs){
+        if(err){
+            console.log(err)
+        }else{
+        res.render('editarperfil.ejs', {Usuario: docs})
+        }
+    })
+
 })
 //public//
 app.get('/principal', async function (req, res) {
@@ -118,6 +125,21 @@ app.post('/resenha', (req, res) => {
         }
     })
 })
+
+//Excluir Publicações//
+app.get('/excluirpublicacao', async function (req, res) {
+    const usuario = await Usuario.findById(req.user.id) 
+    const postagens = await Postagem.find({usuario:req.user.id})
+    res.render('publicacaousuario.ejs', {Usuario:usuario, Postagens: postagens})
+})
+
+//Excluir Resenhas//
+app.get('/excluirresenha', async function (req, res) {
+    const usuario = await Usuario.findById(req.user.id)
+    const resenhas = await Resenha.find({usuario:req.user.id})
+    res.render('resenhausuario.ejs', {Usuario:usuario, Resenhas: resenhas})
+})
+
 
 
 app.listen(3000, function () {

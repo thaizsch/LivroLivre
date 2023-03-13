@@ -6,20 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="index.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="/css/Publicacaousuario.css">
     <title>LivroLivre</title>
 
 </head>
 
 <body>
-<header class="cabecalho">
-    <nav>
-        <div class="logo">LivroLivre</div>
-        <a href="/perfil">Perfil</a>
-        <a href="/resenha">Resenhas</a>
-        <a href="/principal">Inicio</a>
-    </nav>
-</header>
+
+    <header>
+        <nav>
+            <div class="logo"><img src="" alt="imglogo" class="img-logolivrolivre"></div>
+            <a href="/perfil">Perfil</a>
+            <a href="/resenha">Resenhas</a>
+            <a href="/principal">Inicio</a>
+
+        </nav>
+    </header>
+
 
 
     <main class="main">
@@ -27,25 +30,15 @@
         <div class="newPost">
             <div class="infoUser">
                 <div class="imgUser">
-
-                </div>
-                <strong><%=Usuario.nome%> <%=Usuario.sobrenome%></strong>
-            </div>
-            <form class="formPost" id="formpost" method="post">
-                <textarea name="textoResenha" type="text" placeholder="Publicar um livro" id="textarea"></textarea>
                 
 
-                <div class="iconsAndButtons">
-                    <!--<div class="icons">
-                            <button class="btnFileForm">Foto</button>
-                        </div>-->
-                    <button type="submit" id="botao" class="btnSubmitForm">Publicar</button>
-                </div>
             </form>
         </div>
+
+        <div>
         <!-- Posts enviados-->
         <ul class="posts" id="posts">
-            <%Resenhas.forEach(function(post){%>
+            <%Postagens.forEach(function(post){%>
             <li class="post">
                 <div class="infoUserPost">
                     <div class="imgUserPost"></div>
@@ -56,12 +49,17 @@
                 </div>
 
                 <p>
-                    <%=post.textoResenha%>
+                    <%=post.texto%>
                 </p>
+                <img src="/fotos/<%=post.imglivro%>" style="max-width:70%; max-height:70%;">
 
+                <div class="actionBtnPost">
+                    <button type="button" class="filesPost chamarchat">Excluir Publicação</button>
+                </div>
             </li>
             <%})%>
         </ul>
+    </div>
     </main>
 
 </body>

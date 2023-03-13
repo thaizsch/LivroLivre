@@ -10,44 +10,71 @@
 </head>
 <body>
 
-    <div class="sidenav">
-        <div class="login-main-text">
-           <h1>LivroLivre</h1><br>  
-            <h2>Login Page</h2>
-           <p>Bem vindo! Aqui você pode trocar o seu livro.</p>
-        </div>
-     </div>
-     <div class="main">
-        <div class="col-md-6 col-sm-12">
-           <div class="login-form">
-              <form method="post">
-                 <div class="form-group">
-                    <label>Primeiro nome</label>
-                    <input type="text" class="form-control" name="txtNome" id="name" placeholder="Digite seu primeiro nome">
+
+   <div class="container">
+
+      <div class="illustration">
+          <img src="/img/livrolivre.png" alt="mask">
+      </div>
+
+      <div class="form">
+
+          <form method="post">
+              
+              <div class="form-header">
+
+                  <div class="title">
+                      <h1>Crie sua conta!</h1>
+                  </div>
+
+                  <div class="botaologin">
+                      <div class="login-button">
+                      <button><a href="/">Login</a></button>
+                      </div>
+                      <h6 class="naoconta">Já tem conta?</h6>
+                  </div>
+
+              </div>
+
+              <div class="input-group">
+
+                  <div class="input-box">
+                      <label for="firstname">Nome</label>
+                      <input type="text" name="txtNome" id="name" placeholder="Digite seu nome" required>
+                  </div>
+
+                  <div class="input-box">
+                     <label for="firstname">Sobrenome</label>
+                     <input type="text" name="txtSobrenome" id="sobrenome" placeholder="Digite seu sobrenome" required>
                  </div>
-                 <div class="form-group">
-                    <label>Sobrenome</label>
-                    <input type="text" class="form-control" name="txtSobrenome" id="sobrenome" placeholder="Digite seu sobrenome">
-                 </div>
-                 <div class="form-group">
-                  <label>Telefone</label>
-                  <input type="number" class="form-control" name="txtTelefone" id="telefone" placeholder="Digite seu telefone">
-               </div>
-                 <div class="form-group">
-                    <label>E-mail</label>
-                    <input type="email" class="form-control" name="txtEmail" id="email" placeholder="Digite seu E-mail">
-                 </div>
-                 <div class="form-group">
-                    <label>Senha</label>
-                    <input type="password" class="form-control" name="txtSenha" id="password" placeholder="Crie uma senha">
-                 </div>
-                 <button type="submit" class="btn btn-black" value="Registrar">cadastre-se</button>
-                 
-              </form>
-              <button type="submit" class="btn btn-secondary">Já tem uma conta?</button>
-           </div>
-        </div>
-     </div>
+
+                 <div class="input-box">
+                  <label for="email">Telefone</label>
+                  <input type="string" name="txtTelefone" id="telefone" placeholder="(**) ************" required>
+                  </div>
+
+                  <div class="input-box">
+                    <label for="email">Foto de Perfil</label>
+                    <input class="img" type="file" name="txtImagem" id="imagem" required>
+                    </div>
+
+                  <div class="input-box">
+                      <label for="email">E-mail</label>
+                      <input type="email" name="txtEmail" id="email" placeholder="nome@exemplo.com" required>
+                  </div>
+
+                  <div class="input-box">
+                      <label for="password">Senha</label>
+                      <input type="password" name="txtSenha" id="password" placeholder="Crie uma senha" required>
+                  </div>
+
+              </div>
+              <div class="continue-button">
+                  <input type="submit" value="Cadastrar">
+              </div>
+          </form>
+      </div>
+  </div>
 
 </body>
 </html>

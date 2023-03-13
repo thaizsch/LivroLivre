@@ -33,12 +33,15 @@
                         <img src="/img/email-icon.png" alt="email" class="address-icon"> <strong class="email"><%=Usuario.email%></strong> <br>
                         <img src="/img/icone-telefone.png" alt="telefone" class="address-icon"> <strong class="email"><%=Usuario.telefone%></strong> 
                     </h3>
+                    <a class="edit" href="/excluirpublicacao">Minhas Publicações</a> <br>
+                    <a class="edit" href="/excluirresenha">Minhas Resenhas</a> <br>
                     <a class="edit" href="/editar">Editar Perfil</a>
+                    
 
                 </div>
             </div>
             <div class="postagens">
-                <%Postagens.{%>
+                <%Postagens.forEach(function(post){%>
                     <li class="post">
                         <div class="infoUserPost">
                             <div class="imgUserPost"></div>
@@ -53,12 +56,10 @@
                         </p>
                         <img src="/fotos/<%=post.imglivro%>" style="max-width:70%; max-height:70%;">
         
-                        <div class="actionBtnPost">
-                            <button type="button" class="filesPost chamarchat">Quero trocar</button>
-                        </div>
+    
                     </li>
                     <%})%>
-
+                    
                 <%Resenhas.forEach(function(post){%>
                     <li class="post">
                         <div class="infoUserPost">

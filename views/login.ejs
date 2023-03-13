@@ -9,13 +9,50 @@
 
 </head>
 <body>
-<form method="post">
-    <h3>Entrar em contato</h3>
-    <input type="text" name="username" placeholder="Informe seu email"/>
-    <input type="password" name="password" placeholder="Informe sua senha"/>
-    <input type="submit" name="acao" value="enviar"/> 
-    <a href="/cadastro">Cadastre-se</a>
-</form>
-   
+    <div class="container">
+
+        <div class="illustration">
+            <img src="/img/livrolivre.png" alt="mask">
+        </div>
+  
+        <div class="form">
+  
+            <form method="post" >
+                
+                <div class="form-header">
+  
+                    <div class="title">
+                        <h1>Crie sua conta!</h1>
+                    </div>
+  
+                    <div class="botaologin">
+                        <div class="login-button">
+                        <button><a href="/cadastro">Cadastro</a></button>
+                        </div>
+                        <h6 class="naoconta">Não tem conta?</h6>
+                    </div>
+  
+                </div>
+  
+                <div class="input-group">
+  
+                    <div class="input-box">
+                        <label for="email">E-mail</label>
+                        <input type="email" name="email" id="email" placeholder="Informe seu E-mail" required>
+                    </div>
+  
+                    <div class="input-box">
+                        <label for="password">Senha</label>
+                        <input type="password" name="password" id="password" placeholder="Informe sua senha" required>
+                    </div>
+  
+                </div>
+                <div class="continue-button">
+                    <input type="submit" name="acao" value="enviar"/>
+                </div>
+            </form>
+        </div>
+    </div>
+
 </body>
 </html>
