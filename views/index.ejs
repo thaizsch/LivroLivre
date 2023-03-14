@@ -26,9 +26,6 @@
         <!-- Formulario de postagem (postar livro)-->
         <div class="newPost">
             <div class="infoUser">
-                <div class="imgUser">
-
-                </div>
                 <strong><%=Usuario.nome%> <%=Usuario.sobrenome%></strong>
             </div>
             <form class="formPost" id="formpost" method="post" enctype="multipart/form-data">
@@ -51,10 +48,9 @@
             <%Postagens.forEach(function(post){%>
             <li class="post">
                 <div class="infoUserPost">
-                    <div class="imgUserPost"></div>
+        
                     <div class="nameAndHour">
                         <strong><%=post.usuario.nome%> <%=post.usuario.sobrenome%></strong>
-                        <p>hora</p>
                     </div>
                 </div>
 
@@ -64,7 +60,7 @@
                 <img src="/fotos/<%=post.imglivro%>" style="max-width:70%; max-height:70%;">
 
                 <div class="actionBtnPost">
-                    <button type="button" class="filesPost chamarchat">Quero trocar</button>
+                    <a href="/perfilusers/<%=post.usuario._id%>" class="filesPost chamarchat">Entrar em Contato</a>
                 </div>
             </li>
             <%})%>

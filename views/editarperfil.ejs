@@ -4,20 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="/css/Login.css">
-    <title>Login</title>
+    <title>Edit</title>
    
 
 </head>
 <body>
 <form method="post">
-    <h3>Entrar em contato</h3>
-    Id <input type="text" name="txtId" readonly value="<%=Usuario.id%>"/>
-    Nome <input type="text" name="txtNome" value="<%=Usuario.nome%>"/>
-    Sobrenome <input type="text" name="txtSobrenome" value="<%=Usuario.sobrenome%>"/>
-    E-mail <input type="email" name="txtEmail" value="<%=Usuario.email%>"/>
+    <h3>Edite seu perfil!</h3>
+      
+    <div class="input-box">
+  
+        Id <input type="text" name="txtId" readonly value="<%=Usuario.id%>"/>
+        Nome <input type="text" name="txtNome" value="<%=Usuario.nome%>"/>
+        Sobrenome <input type="text" name="txtSobrenome" value="<%=Usuario.sobrenome%>"/>
+        E-mail <input type="email" name="txtEmail" value="<%=Usuario.email%>"/>
+        Telefone <input type="text" name="txtTelefone" value="<%=Usuario.telefone%>"/>
+    </div>
+    <div class="continue-button">
+        <input type="submit" name="acao" value="enviar"/> <br> <br> 
+        <a class="cancelar" href="/perfil">Cancelar</a>
+    </div>
 
-    <input type="submit" name="acao" value="enviar"/> 
-    <a href="/perfil">Cancelar</a>
 </form>
    
 </body>

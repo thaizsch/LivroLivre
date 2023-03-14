@@ -28,7 +28,8 @@ passport.serializeUser(function (user, cb) {
       id: user._id,
       email: user.email,
       nome: user.nome,
-      sobrenome: user.sobrenome
+      sobrenome: user.sobrenome,
+      telefone: user.telefone
     });
   });
 });

@@ -26,9 +26,7 @@
         <!-- Formulario de postagem (postar livro)-->
         <div class="newPost">
             <div class="infoUser">
-                <div class="imgUser">
 
-                </div>
                 <strong><%=Usuario.nome%> <%=Usuario.sobrenome%></strong>
             </div>
             <form class="formPost" id="formpost" method="post">
@@ -48,7 +46,6 @@
             <%Resenhas.forEach(function(post){%>
             <li class="post">
                 <div class="infoUserPost">
-                    <div class="imgUserPost"></div>
                     <div class="nameAndHour">
                         <strong><%=post.usuario.nome%> <%=post.usuario.sobrenome%></strong>
                     </div>

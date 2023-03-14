@@ -41,7 +41,6 @@
             <%Postagens.forEach(function(post){%>
             <li class="post">
                 <div class="infoUserPost">
-                    <div class="imgUserPost"></div>
                     <div class="nameAndHour">
                         <strong><%=Usuario.nome%> <%=Usuario.sobrenome%></strong>
                         <p>hora</p>
@@ -54,7 +53,7 @@
                 <img src="/fotos/<%=post.imglivro%>" style="max-width:70%; max-height:70%;">
 
                 <div class="actionBtnPost">
-                    <button type="button" class="filesPost chamarchat">Excluir Publicação</button>
+                    <a class="chamarchat" href="/excluirpublicacao/<%=post._id%>">Deletar</a>
                 </div>
             </li>
             <%})%>

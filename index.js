@@ -11,6 +11,8 @@ var Usuario = require('./model/usuario')
 var Postagem = require('./model/postagem')
 var Resenha = require('./model/resenha')
 var upload = require('./config/upload')
+
+
 app.use(cookieParser())
 
 
@@ -32,6 +34,7 @@ app.use(bodyParser.urlencoded({
 app.set('view engine', 'ejs')
 
 app.use(express.static(path.join(__dirname, 'public')))
+
 
 ///////////////////////////////////////////////ROTAS//////////////////////////////////////////////////
 
@@ -69,22 +72,30 @@ app.post('/cadastro', function (req, res) {
         }
     })
 })
+//Perfil outros usuarios//
+app.get('/perfilusers/:id', bloqueio, async function (req, res) {
+    const usuario = await Usuario.findById(req.params.id)
+    res.render('perfilusers.ejs', {
+        Usuario: usuario,
+    })
+})
 //perfil do usuario//
-app.get('/perfil', async function (req, res) {
+app.get('/perfil', bloqueio, async function (req, res) {
     const postagens = await Postagem.find({
         usuario: req.user.id
     })
     const resenhas = await Resenha.find({
         usuario: req.user.id
     })
+    const usuario = await Usuario.findById(req.user.id)
     res.render('perfil.ejs', {
-        Usuario: req.user,
+        Usuario: usuario,
         Postagens: postagens,
         Resenhas: resenhas
     })
 })
 //Editar perfil//
-app.get('/editar', async function (req, res) {
+app.get('/editar', bloqueio, async function (req, res) {
     Usuario.findById(req.user.id, function (err, docs) {
         if (err) {
             console.log(err)
@@ -96,11 +107,22 @@ app.get('/editar', async function (req, res) {
     })
 
 })
+//Editar perfil post//
+app.post('/editar', bloqueio, async function(req, res) {
+    const usuario = await Usuario.findById(req.body.txtId)
+    usuario.nome = req.body.txtNome
+    usuario.sobrenome= req.body.txtSobrenome
+    usuario.email= req.body.txtEmail
+    usuario.telefone= req.body.txtTelefone
+    await usuario.save()
+    res.redirect('/perfil')
+})
+
+
 //public//
-app.get('/principal', async function (req, res) {
+app.get('/principal', bloqueio, async function (req, res) {
     const usuario = await Usuario.findById(req.user.id)
     const postagens = await Postagem.find({}).populate('usuario')
-    console.log(postagens)
     res.render('index.ejs', {
         Usuario: usuario,
         Postagens: postagens
@@ -110,7 +132,7 @@ app.get('/principal', async function (req, res) {
 //rota para abrir formulário de postagem
 
 //realizar postagem
-app.post('/principal', upload.single('imglivro'), (req, res) => {
+app.post('/principal', bloqueio, upload.single('imglivro'), (req, res) => {
     console.log(req.file)
     var postagem = new Postagem({
         texto: req.body.texto,
@@ -126,17 +148,16 @@ app.post('/principal', upload.single('imglivro'), (req, res) => {
     })
 })
 //Resenha//
-app.get('/resenha', async function (req, res) {
+app.get('/resenha', bloqueio, async function (req, res) {
     const usuario = await Usuario.findById(req.user.id)
     const resenhas = await Resenha.find({}).populate('usuario')
-    console.log(resenhas)
     res.render('resenha.ejs', {
         Usuario: usuario,
         Resenhas: resenhas
     })
 })
 //Realizar postagem da resenha//
-app.post('/resenha', (req, res) => {
+app.post('/resenha', bloqueio, (req, res) => {
     console.log(req.file)
     var resenha = new Resenha({
         textoresenha: req.body.textoResenha,
@@ -152,7 +173,7 @@ app.post('/resenha', (req, res) => {
 })
 
 //Excluir Publicações//
-app.get('/excluirpublicacao', async function (req, res) {
+app.get('/excluirpublicacao', bloqueio, async function (req, res) {
     const usuario = await Usuario.findById(req.user.id)
     const postagens = await Postagem.find({
         usuario: req.user.id
@@ -163,8 +184,13 @@ app.get('/excluirpublicacao', async function (req, res) {
     })
 })
 
+app.get('/excluirpublicacao/:id', bloqueio, async function (req, res) {
+    await Postagem.findByIdAndDelete(req.params.id)
+    res.redirect('/excluirpublicacao')
+})
+
 //Excluir Resenhas//
-app.get('/excluirresenha', async function (req, res) {
+app.get('/excluirresenha', bloqueio, async function (req, res) {
     const usuario = await Usuario.findById(req.user.id)
     const resenhas = await Resenha.find({
         usuario: req.user.id
@@ -173,6 +199,10 @@ app.get('/excluirresenha', async function (req, res) {
         Usuario: usuario,
         Resenhas: resenhas
     })
+})
+app.get('/excluirresenha/:id', bloqueio, async function (req, res) {
+    await Resenha.findByIdAndDelete(req.params.id)
+    res.redirect('/excluirresenha')
 })
 
 
